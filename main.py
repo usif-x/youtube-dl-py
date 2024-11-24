@@ -4,7 +4,7 @@ import os
 import json
 
 app = Flask(__name__)
-cookies = 'cookies.txt'
+cookies = './cookies.txt'
 @app.route('/info', methods=['GET'])
 def get_info():
     # Retrieve the URL from query parameters
