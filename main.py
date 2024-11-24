@@ -1,10 +1,7 @@
 from flask import Flask, request, jsonify
 import yt_dlp
-import os
-import json
 
 app = Flask(__name__)
-cookies = './cookies.txt'
 @app.route('/info', methods=['GET'])
 def get_info():
     # Retrieve the URL from query parameters
@@ -21,7 +18,7 @@ def get_info():
             'quiet': True,  # Suppress the standard output
             'extract_flat': True,  # Only extract info, not download
             'forcejson': True,  # Get info in JSON format
-            'cookies': cookies  # Pass cookies to yt-dlp
+            'cookiefile': './cookies.txt'  # Pass cookies to yt-dlp
         }
 
         # Extract video info
