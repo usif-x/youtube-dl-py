@@ -4,7 +4,7 @@ import os
 import json
 
 app = Flask(__name__)
-
+cookies = 'cookies.txt'
 @app.route('/info', methods=['GET'])
 def get_info():
     # Retrieve the URL from query parameters
@@ -14,14 +14,8 @@ def get_info():
         return jsonify({"error": "URL is required"}), 400
 
     # Get the cookies from environment variables (Vercel setup)
-    cookies = os.getenv('COOKIES')
 
     # If cookies exist, load and pass them to yt-dlp
-    if cookies:
-        cookies = json.loads(cookies)
-    else:
-        cookies = []
-
     try:
         ydl_opts = {
             'quiet': True,  # Suppress the standard output
