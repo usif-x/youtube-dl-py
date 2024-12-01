@@ -18,7 +18,7 @@ def get_info():
             'quiet': True,  # Suppress the standard output
             'extract_flat': True,  # Only extract info, not download
             'forcejson': True,  # Get info in JSON format
-            'cookiefile': './cookies.txt'  # Pass cookies to yt-dlp
+            'cookiefile': 'cookies.txt'  # Pass cookies to yt-dlp
         }
 
         # Extract video info
